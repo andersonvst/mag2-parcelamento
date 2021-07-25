@@ -1,0 +1,13 @@
+<?php 
+/* @var $block \DentalSpeed\ProdutoParcelamento\Block\Product\View\Parcelamento */
+
+$numeroParcelas = $block->getProdutoAtributoPersolalizado('num_parcelas');
+$valorParcelado = $block->getProdutoValorParcelado();
+$valorParceladoLista = $block->getProdutoValorParceladoLista();
+
+if($numeroParcelas > 1){ ?>
+<div class="product-info-parcelamento">
+    <?php echo "ou em ".$numeroParcelas."x de ".$valorParcelado." sem juros"; ?>
+</div>
+<?php
+}

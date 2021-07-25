@@ -1,0 +1,22 @@
+{
+    "name": "dentalspeed/module-produtoparcelamento",
+    "description": "Modulo de parcelamento",
+    "type": "magento2-module",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Anderson Morais",
+            "email": "andersonvst@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "DentalSpeed\\ProdutoParcelamento\\": ""
+        }
+    }
+}

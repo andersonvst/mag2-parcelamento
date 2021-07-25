@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<body>
+    <referenceContainer name="product.info.main">
+        <block class="DentalSpeed\ProdutoParcelamento\Block\Product\View\Parcelamento" name="product.view.parcelamento" template="DentalSpeed_ProdutoParcelamento::product/view/parcelamento.phtml" after="product.info.price">
+        </block>
+    </referenceContainer>
+</body>

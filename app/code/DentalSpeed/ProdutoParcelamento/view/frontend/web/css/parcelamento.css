@@ -1,0 +1,17 @@
+.product-info-parcelamento {
+    border-bottom: 1px solid #c1c1c1;
+    padding-bottom: 10px;
+}
+
+.product-info-main .product-info-price {
+    border-bottom:none!important;
+    margin-bottom: 0!important;
+}
+
+.product-info-main .product-info-stock-sku {
+    padding-bottom: 0!important;
+}
+
+.product-options-bottom .price-box, .product-info-price .price-box {
+    padding-bottom: 0!important;
+}

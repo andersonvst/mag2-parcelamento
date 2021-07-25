@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3c83d00f5c1a9e67c9e7f6acc484d79c",
+    "content-hash": "bab0b6f6cf20cd5d40d4d759276333d7",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -19778,6 +19778,48 @@
                 "proprietary"
             ],
             "description": "Tools for communicating with Vertex Cloud and Vertex O-Series"
+        },
+        {
+            "name": "vpietri/adm-quickdevbar",
+            "version": "0.1.17",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vpietri/magento2-developer-quickdevbar.git",
+                "reference": "7a590f4bd92386308fac218cd9c85dbf9b9b0d68"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vpietri/magento2-developer-quickdevbar/zipball/7a590f4bd92386308fac218cd9c85dbf9b9b0d68",
+                "reference": "7a590f4bd92386308fac218cd9c85dbf9b9b0d68",
+                "shasum": ""
+            },
+            "require": {
+                "magento/magento-composer-installer": "*",
+                "php": "~5.5|~5.6|~7.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "ADM\\QuickDevBar\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "OSL-3.0",
+                "AFL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Vincent Pietri",
+                    "homepage": "http://www.vincent-pietri.fr/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "QuickDevBar is a developer toolbar for magento 2",
+            "time": "2020-10-15T21:12:18+00:00"
         },
         {
             "name": "webimpress/safe-writer",
