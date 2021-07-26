@@ -29,7 +29,7 @@ Limpe o cache executando:
 php bin/magento cache:flush.
 ```
 
-# Instruções Para Teste (Instalação padrão do magento 2.4.1)
+# Instruções Para Teste
 
 1. Instale o módulo ProdutoParcelamento seguindo as instruções de instalação acima.
 2. Efetue o login no painel administrativo.
