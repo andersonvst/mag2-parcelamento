@@ -1,72 +1,48 @@
 <?php
-declare(strict_types=1);  //Validaçãoo de tipo da váriavel
+declare(strict_types=1);
 
 namespace DentalSpeed\ProdutoParcelamento\Block\Product\View;
 
 class Parcelamento extends \Magento\Framework\View\Element\Template
 {
     /**
-     * @var \Magento\Catalog\Model\ProductRepository
+     * @var $_registry
      */
-    protected $_productRepo;
     protected $_registry;
+
+    /**
+     * @var $_converteMoeda
+     */
     protected $_converteMoeda;
     
     public function __construct(
             \Magento\Backend\Block\Template\Context $context,
-            \Magento\Catalog\Model\ProductRepository $productRepo,
             \Magento\Framework\Registry $registry,
             \Magento\Framework\Pricing\Helper\Data $converteMoeda,
             array $data = []
         )
     {
-        $this->_productRepo = $productRepo;
         $this->_registry = $registry;
         $this->_converteMoeda = $converteMoeda;
         parent::__construct($context, $data);
     }
 
     /**
-     * Retorna valor do atributo personalizado do produto
-     * @param $campo
+     * Retorna o número de parcelas
      */
-    public function getProdutoAtributoPersolalizado($campo=null)
+    public function getProdutoNumeroParcelas()
     {
-        $retorno = false;
-        if($campo){
-            $produtoAtual = $this->_registry->registry('current_product');
-            $produto = $this->_productRepo->getById($produtoAtual->getId());
-            if(is_object($produto->getCustomAttribute($campo))){
-                $retorno = $produto->getCustomAttribute($campo)->getValue();
-            } 
-        } 
-
-        return $retorno;
+        return (int) $this->_registry->registry('current_product')->getNumParcelas();
     }
 
     /**
-     * Retorna valor final do produto atual
-     */
-    public function getProdutoValorFinal()
-    {
-        $produtoAtual = $this->_registry->registry('current_product');
-        $produto = $this->_productRepo->getById($produtoAtual->getId());
-        return $produto->getFinalPrice();
-    }
-
-    /**
-     * Retorna valor final do produto atual parcelado
+     * Retorna preço final do produto parcelado
      */
     public function getProdutoValorParcelado()
     {
-        $numeroParcelas = $this->getProdutoAtributoPersolalizado('num_parcelas');
-        $produtoValorFinal = $this->getProdutoValorFinal();
-        $retorno = false;
-
-        if($numeroParcelas && $produtoValorFinal){
-            $retorno = $this->converteMoeda($produtoValorFinal/$numeroParcelas);
-        } 
-        return $retorno;
+        $parcelas = $this->getProdutoNumeroParcelas();
+        $produtoValorFinal = $this->_registry->registry('current_product')->getFinalPrice();
+        return $this->converteMoeda($produtoValorFinal/$parcelas);
     }
 
     /**
@@ -76,13 +52,11 @@ class Parcelamento extends \Magento\Framework\View\Element\Template
      */
     public function converteMoeda($valor,$simbolo='S')
     {   
-        $retorno = false;
         if($simbolo == 'N'){
             $retorno = str_replace('R$','',$this->_converteMoeda->currency($valor, true, false));
         } else {
             $retorno = $this->_converteMoeda->currency($valor, true, false);
         }
-
         return $retorno;
     }
 }

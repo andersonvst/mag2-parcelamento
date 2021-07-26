@@ -1,11 +1,6 @@
 .product-info-parcelamento {
-    border-bottom: 1px solid #c1c1c1;
-    padding-bottom: 10px;
-}
-
-.product-info-main .product-info-price {
-    border-bottom:none!important;
-    margin-bottom: 0!important;
+    position: absolute;
+    margin-top: -40px;
 }
 
 .product-info-main .product-info-stock-sku {
@@ -13,5 +8,10 @@
 }
 
 .product-options-bottom .price-box, .product-info-price .price-box {
-    padding-bottom: 0!important;
+    padding-bottom: 20px!important;
+}
+
+.product-lista-parcelamento {
+    position: absolute;
+    margin-top: -25px;
 }
