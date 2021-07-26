@@ -12,7 +12,7 @@ class ProductList
     }
 
     public function aroundGetProductDetailsHtml(
-        \Magento\Catalog\Block\Product\ListProduct $subject,
+        \Magento\Catalog\Block\Product\AbstractProduct $subject,
         \Closure $proceed,
         \Magento\Catalog\Model\Product $product
     ) {
